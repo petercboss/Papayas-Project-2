@@ -1,0 +1,43 @@
+html,
+body {
+    background: #e5eaee;
+    margin: 0;
+    padding: 0;
+    font-family: calibri, sans-serif;
+}
+
+#container {
+    width: 800px;
+    padding: 60px;
+    margin: 0 auto;
+}
+
+.title,
+.gnome {
+    text-align: center;
+    font-size: 50px
+}
+
+#weather,
+#calendar,
+#email,
+#tasks {
+    width: 320px;
+    background: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    float: right;
+    padding: 20px;
+}
+
+
+/*calendar*/
+
+
+/*weather*/
+
+
+/*email*/
+
+
+/*tasks*/

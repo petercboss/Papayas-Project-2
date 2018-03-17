@@ -1,9 +1,58 @@
-<div class="container">
-    <fieldset>
-        <form action="/" method="post">
-            <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-            <input type="submit" class="ghost-button" value="Get Weather">
-        </form>
-        <div class="calendar"></div>
-    </fieldset>
+<div id="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="title">The Gnome Page!
+			</h1>
+				<div class="gnome">
+					<img src="../assets/images/gnome.png" alt="Gnome">
+				</div>
+		</div>
+
+
+		<!-- calendar -->
+		<div class="col-md-6">
+			<h2>Your Upcoming Events!</h2>
+			<div id="calendar"></div>
+			<p>
+				{{calendar}}
+			</p>
+		</div>
+
+
+		<!-- weather -->
+		<div class="col-md-6">
+				<h2>Your Current Weather!</h2>
+			<div id="weather">
+				<fieldset>
+					<form action="/" method="post">
+						<input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+						<input type="submit" class="ghost-button" value="Get Weather">
+					</form>
+					<p>
+						{{weather}}
+					</p>
+				</fieldset>
+			</div>
+		</div>
+
+		<!-- email -->
+		<div class="col-md-6">
+			<h2>Your Most Recent Emails!</h2>
+			<div id="email"></div>
+			<p>
+				{{email}}
+			</p>
+		</div>
+
+		<!-- tasks -->
+		<div class="col-md-6">
+			<h2>Your Tasks to Complete!</h2>
+			<div id="tasks"></div>
+			<p>
+				{{tasks}}
+			</p>
+		</div>
+
+		<!-- footer -->
+	</div>
 </div>
