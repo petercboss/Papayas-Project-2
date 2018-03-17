@@ -1,11 +1,26 @@
+module.exports = (app, passport) => { 
     const express = require('express');
-    const router = express.Router();
     const request = require('request');
     const db = require('../models/');
+    const authController = require('../controllers/authcontroller');
     const calendar = require('../controllers/calendar');
     const email = require('../controllers/email');
 
-    router.get('/', (req, res) => {
+    app.get('/signup', authController.signup);
+    app.get('/signin', authController.signin);
+    app.get('/logout', authController.logout);
+
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/index',
+        failureRedirect: '/signup'
+    }));
+
+    app.post('/signin', passport.authenticate('local-signin', {
+        successRedirect: '/index',
+        failureRedirect: '/signin'
+    }));
+
+    app.get('/index', isLoggedIn, function (req, res) {
         let data = [
             calendar(),
             email(),
@@ -26,35 +41,10 @@
             console.log(JSON.parse(body))
         })];
     });
-    
-    
-    
-    
-    
-    
 
-   /* app.post("/", function(req, res) {
-        let city = req.body.city;
-        let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.WEATHER_KEY}`;
-    
-        request(url, function(err, response, body) {
-            if (err) {
-                res.render("index", { weather: null, error: "Error, please try again" });
-            } else {
-                let weather = JSON.parse(body);
-                if (weather.main == undefined) {
-                    res.render("index", {
-                        weather: null,
-                        error: "Error, please try again"
-                    });
-                } else {
-                    let weatherText = `It's ${weather.main.temp} degrees in ${
-                        weather.name
-                    }!`;
-                    res.render("index", { weather: weatherText, error: null });
-                    console.log(weatherText);
-                }
-            }
-        });
-    */
-    module.exports = router;
+    function isLoggedIn(req, res, next) {
+        if (req.isAuthenticated())
+            return next();
+        res.redirect('/signin');
+    }
+}
