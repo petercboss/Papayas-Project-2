@@ -281,3 +281,10 @@ $("#sound").click(function () {
 	$("#mute").show();
 	$("#sound").hide();
 });
+
+
+// Begin kyles gnome animation
+function myFunction() {
+    document.getElementById("gnomeDiv").style.WebkitAnimation = "mynewmove 4s 2"; // Code for Safari 4.0 - 8.0
+    document.getElementById("gnomeDiv").style.animation = "mynewmove 4s 2";
+}

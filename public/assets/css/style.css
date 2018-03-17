@@ -30,6 +30,44 @@ body {
     padding: 20px;
 }
 
+/* = kyles gnome = */
+
+#gnomeDiv {
+    width: 100px;
+    height: 100px;
+    /* background: red; */
+    position: relative;
+    -webkit-animation: mymove 1s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 1s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 200px;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mynewmove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 200px;}
+}
+
+@keyframes mynewmove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+/* = kyles gnome end = */
+
+
+
+
 
 /*calendar*/
 
