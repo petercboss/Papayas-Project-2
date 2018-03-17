@@ -15,8 +15,8 @@ const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-require('./routes/apiRoutes.js')(app);
-require('./routes/htmlRoutes.js')(app);
+const routes = require('./routes/apiRoutes.js');
+app.use('/', routes);
 
 //db.sequelize.sync().then(() => {
   app.listen(port, () => {

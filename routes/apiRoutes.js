@@ -1,7 +1,29 @@
-module.exports = (app) => {
+    const express = require('express');
+    const router = express.Router();
     const request = require('request');
+    const calendar = require('../controllers/calendar');
+    const email = require('../controllers/email');
 
-    app.post("/", function(req, res) {
+    router.get('/', (req, res) => {
+        let data = [
+            calendar(),
+            email(),
+        request(`http://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=b93ca65a1efb368d1b3d4a3af522cd1a`, (err, response, body) => {
+            console.log(JSON.parse(body));
+        }),
+        request(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=a49ca69ef1f34e03abdc6463849a01bf`, (err, response, body) => {
+            console.log(JSON.parse(body))
+        })]
+        res.render('index', { data: data });
+    });
+    
+    
+    
+    
+    
+    
+
+   /* app.post("/", function(req, res) {
         let city = req.body.city;
         let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.WEATHER_KEY}`;
     
@@ -24,6 +46,5 @@ module.exports = (app) => {
                 }
             }
         });
-    });
-    
-}
+    */
+    module.exports = router;
