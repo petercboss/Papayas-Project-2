@@ -1,18 +1,28 @@
 'use strict';
 
-/* module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
-  const User = sequelize.define('Burger', {
-    burger_name: {
+  const User = sequelize.define('User', {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: { len: [1, 30] }
     },
-    devoured: {
-      type: DataTypes.BOOLEAN,
+    email: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: false
+      validate: { len: [1, 60] }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { len: [1, 30] }
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { len: [1, 30] }
     }
   });
-  return Burger;
-};  */
+  return User;
+};
