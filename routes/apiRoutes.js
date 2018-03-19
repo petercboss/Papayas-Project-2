@@ -24,6 +24,7 @@ module.exports = (app, passport) => {
         let data = [
             calendar(),
             email(),
+            // console.log(`this is Bens Test:`, calendar.listEvents),
         request(`http://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=b93ca65a1efb368d1b3d4a3af522cd1a`, (err, response, body) => {
             let weather = JSON.parse(body);
             if (weather.main == undefined) {
@@ -46,7 +47,7 @@ module.exports = (app, passport) => {
                             } else {
                                 let sportsText = `My teams: ${sports.teams[0].strTeam}`;
                                 let sportsLogo = `${sports.teams[0].strTeamLogo}`;
-                                res.render('index', { news: newsText, weather: weatherText, sports: sportsText, logo: sportsLogo });
+                                res.render('index', { news: newsText, weather: weatherText, sports: sportsText, logo: sportsLogo,});
                             };
                         });
                     };

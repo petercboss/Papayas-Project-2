@@ -1,4 +1,5 @@
 module.exports = function(calendar) {
+  const express = require('express');
   var fs = require('fs');
   var path = require('path');
   var readline = require('readline');
@@ -124,9 +125,10 @@ module.exports = function(calendar) {
           for (var i = 0; i < 5; i++) {
             var event = events[i];
             var start = event.start.dateTime || event.start.date;
-            console.log('%s - %s', start, event.summary);
+            console.log('%s - %s', start, event.summary, event.status);
           }
         }
       });
   }
 }
+
