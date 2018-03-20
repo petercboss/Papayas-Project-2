@@ -51,13 +51,14 @@ function setIcon(status) {
 
 function setCurrent(city) {
 	$.ajax({
-		url: "https://api.openweathermap.org/data/2.5/weather?q=" +
+		url:
+			"https://api.openweathermap.org/data/2.5/weather?q=" +
 			city +
-			"&APPID=18779931dba6c5d8e6c9cac52c1c2f90",
+			"&APPID=3ea3b151f084feef6d75c864368f98a4",
 		method: "GET",
 		data: {},
 		dataType: "json",
-		success: function (data) {
+		success: function(data) {
 			$("#city").empty();
 			$("#city").append(city.substring(0, city.indexOf(",")));
 			$("#temp").empty();
@@ -73,13 +74,14 @@ function setCurrent(city) {
 
 function setForecast(city, reason) {
 	$.ajax({
-		url: "https://api.openweathermap.org/data/2.5/forecast/daily?q=" +
+		url:
+			"https://api.openweathermap.org/data/2.5/forecast/daily?q=" +
 			city +
-			",de&mode=json&appid=18779931dba6c5d8e6c9cac52c1c2f90",
+			",de&mode=json&appid=3ea3b151f084feef6d75c864368f98a4",
 		method: "GET",
 		data: {},
 		dataType: "json",
-		success: function (data) {
+		success: function(data) {
 			var dayCounter = d.getDay();
 			for (i = 0; i <= 3; i++) {
 				if (dayCounter >= weekday.length - 1) {
@@ -93,8 +95,8 @@ function setForecast(city, reason) {
 					);
 					$(".icons").append(
 						'<div class="gap">' +
-						getIcon(data.list[i].weather[0].main) +
-						"</div>"
+							getIcon(data.list[i].weather[0].main) +
+							"</div>"
 					);
 				}
 				$("#forecast").append(
@@ -152,132 +154,67 @@ function getLocation() {
 		}
 	});
 }
-/*music player*/
-var num = 0;
-var hiddenPlayer = $("#hidden-player");
-var player = $("#player");
-var title = $(".title");
-var cover = $(".coverr");
+/*tasks*/
+handleCheckbox = event => {
+	const target = event.target;
+	console.log(event.target);
+	this.setState({
+		[target.name]: target.checked
+	});
+};
 
-function secondsTimeSpanToHMS(s) {
-	var h = Math.floor(s / 3600);
-	s -= h * 3600;
-	var m = Math.floor(s / 60);
-	s -= m * 60;
-	return h + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-}
-songs = [{
-		src: "http://chenyiya.com/codepen/iron.mp3",
-		title: "Woodkid - Iron",
-		coverart: "http://chenyiya.com/codepen/iron-image.jpg"
-	},
-	{
-		src: "http://chenyiya.com/codepen/A New Error.mp3",
-		title: "Moderat - A New Error",
-		coverart: "http://chenyiya.com/codepen/moderat.jpg"
-	},
-	{
-		src: "http://chenyiya.com/codepen/midnight city.mp3",
-		title: "M83 - Midnight City",
-		coverart: "http://chenyiya.com/codepen/m83.jpg"
-	}
+const edit = (<Tooltip id="edit_tooltip">Edit Task</Tooltip>);
+const remove = (<Tooltip id="remove_tooltip">Remove</Tooltip>);
+const tasks_title = [
+	'Sign contract for "What are conference organizers afraid of?"',
+	'Lines From Great Russian Literature? Or E-mails From My Boss?',
+	'Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroi',
+	'Create 4 Invisible User Experiences you Never Knew About',
+	'Read "Following makes Medium better"',
+	'Unfollow 5 enemies from twitter'
 ];
-var initSongSrc = songs[0].src;
-var initSongTitle = songs[0].title;
-var initSongCover = songs[0].coverart;
-var items = songs.length - 1;
-hiddenPlayer.attr("src", initSongSrc);
-title.html(initSongTitle);
-cover.attr("src", initSongCover);
-$(".next").on("click", function () {
-	var songOrder = hiddenPlayer.attr("order");
-	if (items == songOrder) {
-		num = 0;
-		var songSrc = songs[0].src;
-		var songTitle = songs[0].title;
-		var songCover = songs[0].coverart;
-		hiddenPlayer.attr("order", "0");
-		hiddenPlayer.attr("src", songSrc).trigger("play");
-		title.html(songTitle);
-		cover.attr("src", songCover);
-	} else {
-		console.log(songOrder);
-		num += 1;
-		var songSrc = songs[num].src;
-		var songTitle = songs[num].title;
-		var songCover = songs[num].coverart;
-		hiddenPlayer.attr("src", songSrc).trigger("play");
-		title.html(songTitle);
-		cover.attr("src", songCover);
-		hiddenPlayer.attr("order", num);
-	}
-});
-$(".prev").on("click", function () {
-	var songOrder = hiddenPlayer.attr("order");
-	if (songOrder == 0) {
-		num = items;
-		var songSrc = songs[items].src;
-		var songTitle = songs[items].title;
-		var songCover = songs[items].coverart;
-		hiddenPlayer.attr("order", items);
-		hiddenPlayer.attr("src", songSrc).trigger("play");
-		title.html(songTitle);
-		cover.attr("src", songCover);
-	} else {
-		num -= 1;
-		var songSrc = songs[num].src;
-		var songTitle = songs[num].title;
-		var songCover = songs[num].coverart;
-		hiddenPlayer.attr("src", songSrc).trigger("play");
-		title.html(songTitle);
-		cover.attr("src", songCover);
-		hiddenPlayer.attr("order", num);
-	}
-});
-$("#playmusic").click(function () {
-	hiddenPlayer[0].play();
-	$("#playmusic").hide();
-	$("#pause")
-		.show()
-		.addClass("active");
-});
-$("#pause").click(function () {
-	hiddenPlayer[0].pause();
-	$("#playmusic").show();
-	$("#pause").hide();
-});
-hiddenPlayer.on("timeupdate", function () {
-	var songLength = secondsTimeSpanToHMS(this.duration);
-	var songLengthParse = songLength.split(".")[0];
-	var songCurrent = secondsTimeSpanToHMS(this.currentTime);
-	var songCurrentParse = songCurrent.split(".")[0];
-	$("progress").attr("value", this.currentTime / this.duration);
-	if (!hiddenPlayer[0].paused) {
-		$("#playmusic").hide();
-		$("#pause").show();
-		$("progress").css("cursor", "pointer");
-		$("progress").on("click", function (e) {
-			var parentOffset = $(this)
-				.parent()
-				.offset();
-			var relX = e.pageX - parentOffset.left;
-			var percPos = relX * 100 / 355;
-			var second = hiddenPlayer[0].duration * parseInt(percPos) / 100;
-			console.log(second);
-			hiddenPlayer[0].currentTime = second;
-		});
-	}
-	if (this.currentTime == this.duration) {
-		$(".next").trigger("click");
-	}
-});
-$("#mute").click(function () {
-	hiddenPlayer[0].volume = 1;
-	$("#mute").hide();
-	$("#sound").show();
-});
-$("#sound").click(function () {
-	hiddenPlayer[0].volume = 0;
-	$("#mute").show();
-	$("#sound").hide();
-});
+var tasks = [];
+var number;
+for (var i = 0; i < tasks_title.length; i++) {
+	number = "checkbox"+i;
+	tasks.push(
+		<tr key={i}>
+			<td>
+				<Checkbox
+					number={number}
+					isChecked={i === 1 || i === 2 ? true:false}
+				/>
+			</td>
+			<td>{tasks_title[i]}</td>
+			<td className="td-actions text-right">
+				<OverlayTrigger placement="top" overlay={edit}>
+					<Button
+						bsStyle="info"
+						simple
+						type="button"
+						bsSize="xs"
+					>
+						<i className="fa fa-edit"></i>
+					</Button>
+				</OverlayTrigger>
+
+				<OverlayTrigger placement="top" overlay={remove}>
+					<Button
+						bsStyle="danger"
+						simple
+						type="button"
+						bsSize="xs"
+					>
+						<i className="fa fa-times"></i>
+					</Button>
+				</OverlayTrigger>
+
+			</td>
+		</tr>
+	);
+}
+return (
+	<tbody>
+		{tasks}
+	</tbody>
+);
