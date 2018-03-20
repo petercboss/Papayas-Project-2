@@ -31,6 +31,64 @@ body {
 }
 
 
+/* = kyles gnome = */
+
+#gnomeDiv {
+    width: 100px;
+    height: 100px;
+    /* background: red; */
+    position: relative;
+    -webkit-animation: mymove 1s infinite;
+    /* Safari 4.0 - 8.0 */
+    animation: mymove 1s infinite;
+}
+
+
+/* Chrome, Safari, Opera */
+
+@-webkit-keyframes mymove {
+    from {
+        left: 0px;
+    }
+    to {
+        left: 200px;
+    }
+}
+
+
+/* Chrome, Safari, Opera */
+
+@-webkit-keyframes mynewmove {
+    from {
+        top: 0px;
+    }
+    to {
+        top: 200px;
+    }
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+    }
+    to {
+        left: 200px;
+    }
+}
+
+@keyframes mynewmove {
+    from {
+        top: 0px;
+    }
+    to {
+        top: 200px;
+    }
+}
+
+
+/* = kyles gnome end = */
+
+
 /*calendar*/
 
 
@@ -864,3 +922,29 @@ input.checkbox:checked:after {
 
 
 /*--//responsive--*/
+
+
+/* end template  */
+
+
+/* begin kyles add on mods to templates */
+
+#d1 {
+    /* margin: 0 */
+    /* background: rgba(19, 17, 17, 0.62) */
+}
+
+#d2 {
+    /* margin: 0 */
+}
+
+#d3 {
+    /* margin: 0 */
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    background: rgba(19, 17, 17, 0.62);
+    box-shadow: 2px 2px 21px rgba(0, 0, 0, 0.29);
+}
