@@ -288,3 +288,33 @@ function myFunction() {
     document.getElementById("gnomeDiv").style.WebkitAnimation = "mynewmove 4s 2"; // Code for Safari 4.0 - 8.0
     document.getElementById("gnomeDiv").style.animation = "mynewmove 4s 2";
 }
+// End kyles gnome animation
+
+// begin google earth api
+
+var query = "mountains";
+var API_KEY = "AIzaSyCnhWzIIcj-lCLUynULWI2CdBHiixx7Tis";
+var ENGINE_ID = "your_engine_id";
+var API_URL = `
+  https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${ENGINE_ID}&searchType=image&q=${query}
+`
+
+$(document).ready(function() {
+
+    $.getJSON(API_URL, {
+            tags: query,
+            tagmode: "any",
+            format: "json"
+        },
+        function(data) {
+            var rnd = Math.floor(Math.random() * data.items.length);
+
+            var image_src = data.items[rnd]['link'];
+
+            $('body').css('background-image', "url('" + image_src + "')");
+
+        });
+
+});
+
+// end google earth api
