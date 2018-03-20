@@ -1,59 +1,67 @@
 <div class="container">
-    <fieldset>
-        <div>
-            <h5>Hurray! you are logged in.</h5>
-            <p>{{weather}}</p>
-            <p>{{news}}</p>
-            <p>{{sports}}</p>
-            <img src="{{logo}}">
-        </div>
-    </fieldset>
-</div>
-
-		<div class="col-md-12">
-			<h1 class="title">The Gnome Page!
-			</h1>
-				<div class="gnome">
-					<img id="gnomeDiv" src="../assets/images/gnome.png" alt="Gnome">
-				</div>
+	{{!--
+	<fieldset>
+		<div>
+			<h5>Hurray! you are logged in.</h5>
+			<p>{{weather}}</p>
+			<p>{{news}}</p>
+			<p>{{sports}}</p>
+			<img src="{{logo}}">
 		</div>
+	</fieldset> --}}
 
-<!--header-->
-		<div class="header-w3l">
-			<h1>Transparent Sign In Form</h1>
+
+	<div class="col-md-12">
+		<h1 class="title">The Gnome Page!
+		</h1>
+		<div class="gnome">
+			<img id="gnomeDiv" src="../assets/images/gnome.png" alt="Gnome">
 		</div>
-		<!--//header-->
-		<!--main-->
-		<div class="main-content-agile">
-			<div class="sub-main-w3">	
-				<h2>Sign In</h2>
-				<form action="#" method="post">
-					<h6>Swiftly sign in with</h6>
-					<div class="navbar-right social-icons"> 
-						<a href="#" class="one-w3ls" ><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
-						<a href="#" class="two-w3ls" ><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</a>
-						<div class="clear"></div>
-					</div>
-					<h6>Or use your email</h6>
-					<div class="icon1">
-						<input placeholder="Email" name="mail" type="email" required="">
-					</div>
-					
-					<div class="icon2">
-						<input  placeholder="Password" name="Password" type="password" required="">
-					</div>
-					<label class="anim">
-					<input type="checkbox" class="checkbox">
-						<span>Remember Me</span> 
-						<a href="#">Forgot Password</a>
-					</label> 
-						<div class="clear"></div>
-					<input type="submit" value="Sign in">
-				</form>
+	</div>
+
+	<!--header-->
+	<div class="header-w3l">
+		<h1>Welcome, to your personalized Gnomepage</h1>
+	</div>
+	<!--//header-->
+	<!--main-->
+	<div class="row">
+
+		<div class="col-sm-4">
+			{{!-- first box --}}
+			<div class="sub-main-w3" id="d2">
+				<h2>Weather</h2>
+				<h6>{{weather}}</h6>
 			</div>
+			{{!-- first box end--}}
 		</div>
-		<!--//main-->
-		<!--footer-->
-		<div class="footer">
-			<p>&copy; 2017 Transparent Sign In Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+
+		<div class="col-sm-4">
+			{{!-- second box --}}
+			<div class="sub-main-w3" id="d3">
+				<h2>News</h2>
+				<h6>{{news}}</h6>
+			</div>
+			{{!-- second box end--}}
 		</div>
+
+		<div class="col-sm-4">
+			{{!-- third box --}}
+			<div class="sub-main-w3" id="d4">
+				<h2>Sportsball</h2>
+				<h6>{{sports}}</h6>
+				<img src="{{logo}}">
+			</div>
+			{{!-- third box end--}}
+		</div>
+	</div>
+	{{!-- ending row div --}}
+	<!--	//main-->
+
+	<!--	footer-->
+	<div class="footer">
+		<p>&copy; 2017 Transparent Sign In Form. All rights reserved | Design by
+			<a href="http://w3layouts.com">W3layouts</a>
+		</p>
+	</div>
+</div>

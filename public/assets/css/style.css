@@ -599,3 +599,18 @@ input.checkbox:checked:after {
 }
 /*--//responsive--*/
 /* end template  */
+
+/* begin kyles add on mods to templates */
+
+#d1 {
+	/* margin: 0 */
+	/* background: rgba(19, 17, 17, 0.62) */
+}
+
+#d2 {
+	/* margin: 0 */
+}
+
+#d3 {
+	/* margin: 0 */
+}
