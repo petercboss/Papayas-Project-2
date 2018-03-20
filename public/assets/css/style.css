@@ -614,3 +614,10 @@ input.checkbox:checked:after {
 #d3 {
 	/* margin: 0 */
 }
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+	background:rgba(19, 17, 17, 0.62);
+	box-shadow: 2px 2px 21px rgba(0, 0, 0, 0.29);
+}
