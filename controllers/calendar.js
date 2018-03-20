@@ -1,5 +1,6 @@
-//module.exports = function(calendar) {
+module.exports = function(calendar) {
   var fs = require('fs');
+  var path = require('path');
   var readline = require('readline');
   var google = require('googleapis');
   var googleAuth = require('google-auth-library');
@@ -12,7 +13,7 @@
   var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
   // Load client secrets from a local file.
-  fs.readFile('../config/calendar.json', function processClientSecrets(err, content) {
+  fs.readFile(path.resolve(__dirname, '../config/calendar.json'), function processClientSecrets(err, content) {
     if (err) {
       console.log('Error loading client secret file: ' + err);
       return;
@@ -102,30 +103,30 @@
    * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
    */
   function listEvents(auth) {
-    var calendar = google.calendar('v3');
-    calendar.events.list({
-      auth: auth,
-      calendarId: 'primary',
-      timeMin: (new Date()).toISOString(),
-      maxResults: 5,
-      singleEvents: true,
-      orderBy: 'startTime'
-    }, function(err, response) {
-      if (err) {
-        console.log('The API returned an error: ' + err);
-        return;
-      }
-      var events = response.items;
-      if (events.length == 0) {
-        console.log('No upcoming events found.');
-      } else {
-        console.log('Upcoming 10 events:');
-        for (var i = 0; i < events.length; i++) {
-          var event = events[i];
-          var start = event.start.dateTime || event.start.date;
-          console.log('%s - %s', start, event.summary);
+      var calendar = google.calendar('v3');
+      calendar.events.list({
+        auth: auth,
+        calendarId: 'primary',
+        timeMin: (new Date()).toISOString(),
+        maxResults: 1,
+        singleEvents: true,
+        orderBy: 'startTime'
+      }, function(err, response) {
+        if (err) {
+          console.log('The API returned an error: ' + err);
+          return;
         }
-      }
-    });
+        var events = response.items;
+        if (events.length == 0) {
+          console.log('No upcoming events found.');
+        } else {
+          console.log('Todays events:');
+          for (var i = 0; i < 5; i++) {
+            var event = events[i];
+            var start = event.start.dateTime || event.start.date;
+            console.log('%s - %s', start, event.summary);
+          }
+        }
+      });
   }
-//}
+}

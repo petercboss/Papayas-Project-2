@@ -1,5 +1,15 @@
-<div id="container">
-	<div class="row">
+<div class="container">
+    <fieldset>
+        <div>
+            <h5>Hurray! you are logged in.</h5>
+            <p>{{weather}}</p>
+            <p>{{news}}</p>
+            <p>{{sports}}</p>
+            <img src="{{logo}}">
+        </div>
+    </fieldset>
+</div>
+
 		<div class="col-md-12">
 			<h1 class="title">The Gnome Page!
 			</h1>
@@ -8,51 +18,42 @@
 				</div>
 		</div>
 
-
-		<!-- calendar -->
-		<div class="col-md-6">
-			<h2>Your Upcoming Events!</h2>
-			<div id="calendar"></div>
-			<p>
-				{{calendar}}
-			</p>
+<!--header-->
+		<div class="header-w3l">
+			<h1>Transparent Sign In Form</h1>
 		</div>
-
-
-		<!-- weather -->
-		<div class="col-md-6">
-				<h2>Your Current Weather!</h2>
-			<div id="weather">
-				<fieldset>
-					<form action="/" method="post">
-						<input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-						<input type="submit" class="ghost-button" value="Get Weather">
-					</form>
-					<p>
-						{{weather}}
-					</p>
-				</fieldset>
+		<!--//header-->
+		<!--main-->
+		<div class="main-content-agile">
+			<div class="sub-main-w3">	
+				<h2>Sign In</h2>
+				<form action="#" method="post">
+					<h6>Swiftly sign in with</h6>
+					<div class="navbar-right social-icons"> 
+						<a href="#" class="one-w3ls" ><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+						<a href="#" class="two-w3ls" ><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</a>
+						<div class="clear"></div>
+					</div>
+					<h6>Or use your email</h6>
+					<div class="icon1">
+						<input placeholder="Email" name="mail" type="email" required="">
+					</div>
+					
+					<div class="icon2">
+						<input  placeholder="Password" name="Password" type="password" required="">
+					</div>
+					<label class="anim">
+					<input type="checkbox" class="checkbox">
+						<span>Remember Me</span> 
+						<a href="#">Forgot Password</a>
+					</label> 
+						<div class="clear"></div>
+					<input type="submit" value="Sign in">
+				</form>
 			</div>
 		</div>
-
-		<!-- email -->
-		<div class="col-md-6">
-			<h2>Your Most Recent Emails!</h2>
-			<div id="email"></div>
-			<p>
-				{{email}}
-			</p>
+		<!--//main-->
+		<!--footer-->
+		<div class="footer">
+			<p>&copy; 2017 Transparent Sign In Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
 		</div>
-
-		<!-- tasks -->
-		<div class="col-md-6">
-			<h2>Your Tasks to Complete!</h2>
-			<div id="tasks"></div>
-			<p>
-				{{tasks}}
-			</p>
-		</div>
-
-		<!-- footer -->
-	</div>
-</div>
