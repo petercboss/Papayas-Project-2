@@ -43,7 +43,10 @@ body {
     animation: mymove 1s infinite;
 }
 
-
+.card-img-top{
+	width: 128px;
+	height: 128px;
+}
 /* Chrome, Safari, Opera */
 
 @-webkit-keyframes mymove {
