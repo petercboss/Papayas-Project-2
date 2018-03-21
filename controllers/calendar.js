@@ -124,6 +124,7 @@ module.exports = function(calendar) {
           console.log('Todays events:');
           var calendarArray = [];
           for (var i = 0; i < 5; i++) {
+            
             var event = events[i];
             var start = event.start.dateTime || event.start.date;
             calendarArray.push(start, event.summary);
