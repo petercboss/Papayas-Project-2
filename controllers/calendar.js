@@ -1,4 +1,5 @@
 module.exports = function(calendar) {
+  return new Promise(function(resolve, reject){
   var fs = require('fs');
   var path = require('path');
   var readline = require('readline');
@@ -121,12 +122,16 @@ module.exports = function(calendar) {
           console.log('No upcoming events found.');
         } else {
           console.log('Todays events:');
+          var calendarArray = [];
           for (var i = 0; i < 5; i++) {
             var event = events[i];
             var start = event.start.dateTime || event.start.date;
+            calendarArray.push(start, event.summary);
             console.log('%s - %s', start, event.summary);
           }
+          resolve(calendarArray);
         }
       });
   }
+});
 }

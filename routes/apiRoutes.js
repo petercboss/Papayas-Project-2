@@ -21,9 +21,21 @@ module.exports = (app, passport) => {
     }));
 
     app.get('/', isLoggedIn, function (req, res) {
+        let calEvent;
+        let emailLabel;
         let data = [
-            calendar(),
-            email(),
+            calendar().then(function(resolve) {
+                console.log(`this is my apiroutes test!`, resolve);
+                // expected output: "Success!"
+                calEvent = resolve;
+                console.log(`final test`, calEvent);
+              }),
+            email().then(function(resolve) {
+                console.log(`this is my apiroutes test!`, resolve);
+                // expected output: "Success!"
+                emailLabel = resolve;
+                console.log(`final email test`, emailLabel);
+              }),
         request(`http://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=b93ca65a1efb368d1b3d4a3af522cd1a`, (err, response, body) => {
             let weather = JSON.parse(body);
             if (weather.main == undefined) {
@@ -46,7 +58,7 @@ module.exports = (app, passport) => {
                             } else {
                                 let sportsText = `My teams: ${sports.teams[0].strTeam}`;
                                 let sportsLogo = `${sports.teams[0].strTeamLogo}`;
-                                res.render('index', { news: newsText, weather: weatherText, sports: sportsText, logo: sportsLogo });
+                                res.render('index', { news: newsText, weather: weatherText, sports: sportsText, logo: sportsLogo, email: emailLabel, calendar: calEvent });
                             };
                         });
                     };

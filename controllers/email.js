@@ -1,4 +1,5 @@
 module.exports = function(email) {
+  return new Promise(function(resolve, reject){
 var fs = require('fs');
 var path = require('path');
 var readline = require('readline');
@@ -117,11 +118,15 @@ function listLabels(auth) {
       console.log('No labels found.');
     } else {
       console.log('Labels:');
+      var emailArray = [];
       for (var i = 0; i < labels.length; i++) {
         var label = labels[i];
+        emailArray.push(label.name);
         console.log('- %s', label.name);
       }
+      resolve(emailArray);
     }
   });
 }
+  });
 }
