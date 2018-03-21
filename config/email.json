@@ -1,1 +1,11 @@
-{"installed":{"client_id":"70892593112-re9d2fmnlcttbet6rkviebkcv9jha9ls.apps.googleusercontent.com","project_id":"nice-catbird-198201","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://accounts.google.com/o/oauth2/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"T1Nk6pN3_v9FQ_PaVizfwjxA","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","http://localhost"]}}
+{
+	"installed": {
+		"client_id": "70892593112-re9d2fmnlcttbet6rkviebkcv9jha9ls.apps.googleusercontent.com",
+		"project_id": "nice-catbird-198201",
+		"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+		"token_uri": "https://accounts.google.com/o/oauth2/token",
+		"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+		"client_secret": "T1Nk6pN3_v9FQ_PaVizfwjxA",
+		"redirect_uris": ["urn:ietf:wg:oauth:2.0:oob", "http://localhost"]
+	}
+}
