@@ -37,7 +37,7 @@
 
 		<!--header-->
 		<div class="header-w3l">
-			<h1>Welcome, {{user.firstname}}</h1>
+			<h1>Welcome, {{username}}</h1>
 		</div>
 
 		<!-- Page Features -->
@@ -81,13 +81,18 @@
 				<div id = "effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d4">
-							<h2>Email</h2>
-							<img class="card-img-top" src="../assets/images/gmail.png" alt="">
-							<p>{{email}}</p>
+							<h3>Gmail
+							<img class="card-img-top" id='email-img' src="../assets/images/gmail.png" alt=""></h3>
+
+							<div class="row">
+								<ul>
+							<li>{{{email}}}</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="card-footer">
-						<a class="btn btn-primary">Hide Email</a>
+						<a href="https://mail.google.com/mail/u/1/#inbox" class="btn btn-primary">Go to Gmail</a>
 					</div>
 				</div>
 			</div>
@@ -98,8 +103,7 @@
 					<div class="card-body">
 						<div class="sub-main-w3" id="d3">
 							<h2>News</h2>
-							<img class="card-img-top" src="../assets/images/news.png" alt="">
-							<h6>{{news}}</h6>
+							<div>{{{news}}}</div>
 						</div>
 					</div>
 					<div class="card-footer">

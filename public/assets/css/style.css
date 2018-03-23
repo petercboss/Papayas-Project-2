@@ -975,12 +975,11 @@ input.checkbox:checked:after {
     /* position: relative; */
 }
 
-
-/* #effect h2 {
+#effect h2 {
     margin: 0;
     padding: 0.4em;
     text-align: center;
-} */
+}
 
 
 /* .sub-main-w3 input[type="submit"] {
@@ -1025,6 +1024,39 @@ a.btn-primary:hover {
     display: none;
 }
 
-p {
+ul {
+    margin-left: 10px;
+    margin-right: 6px;
+}
+
+li {
+    color: black;
+    font-size: 13px;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 6px;
+    /* list-style-type: decimal; */
+}
+
+h3 {
+    background: #ff4c4c;
+    font-size: 2em;
     color: #fff;
+    margin-bottom: 1em;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
+}
+
+#email-img {
+    width: 40px;
+    height: 40px;
+    float: right;
+    /* position: relative; */
+}
+
+#d4 {
+    background: #fff;
 }
