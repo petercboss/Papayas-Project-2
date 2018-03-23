@@ -1,4 +1,4 @@
-module.exports = (app, passport) => { 
+module.exports = (app, passport) => {
     const express = require('express');
     const request = require('request');
     const db = require('../models/');
@@ -24,8 +24,8 @@ module.exports = (app, passport) => {
         let calEvent = `https://calendar.google.com/calendar/embed?mode=DAY&src=${req.user.email}&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"`;
         let emailLabel;
         let data = [
-            email().then(function(resolve) {
-                console.log(`this is my apiroutes test!`, resolve);
+        email().then(function(resolve) {
+                // console.log(`this is my apiroutes test!`, resolve);
                 // expected output: "Success!"
                 emailLabel = resolve;
                 console.log(`final email test`, emailLabel);
