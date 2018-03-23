@@ -169,7 +169,7 @@ module.exports = function (email) {
 								// id: response.messages.id,
 								id: currentMessages,
 								format: "full",
-								// format: "raw"
+							//format: "raw"
 							},
 							function (err, response) {
 								if (err) {
@@ -195,7 +195,7 @@ module.exports = function (email) {
 								// console.log("A short part of the message text: ");
 								
 
-								//console.log(response.snippet);
+								console.log(response.snippet);
                 emailArray.push(response.snippet);
                 resolve(emailArray);
                 
