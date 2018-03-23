@@ -43,26 +43,12 @@
 		<!-- Page Features -->
 		<div class="row text-center">
 
-			<!-- calendar -->
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div id = "effect" class="card">
-					<div class="card-body">
-						<div class="sub-main-w3" id="d2">
-							<h2>Calendar</h2>
-							{{!-- <img class="card-img-top" src="{{logo}}" alt=""> --}}
-							<iframe src="{{calendar}}"></iframe>
-						</div>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-primary">Hide Calendar</a>
-					</div>
-				</div>
-			</div>
+
 
 
 			<!-- weather -->
 			<div class="col-lg-3 col-md-6 mb-4">
-				<div id = "effect" class="card">
+				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d2">
 							<h2>Weather</h2>
@@ -76,30 +62,11 @@
 				</div>
 			</div>
 
-			<!-- email -->
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div id = "effect" class="card">
-					<div class="card-body">
-						<div class="sub-main-w3" id="d4">
-							<h3>Gmail
-							<img class="card-img-top" id='email-img' src="../assets/images/gmail.png" alt=""></h3>
 
-							<div class="row">
-								<ul>
-							<li>{{{email}}}</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="card-footer">
-						<a href="https://mail.google.com/mail/u/1/#inbox" class="btn btn-primary">Go to Gmail</a>
-					</div>
-				</div>
-			</div>
 
 			<!-- news -->
 			<div class="col-lg-3 col-md-6 mb-4">
-				<div id = "effect" class="card">
+				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d3">
 							<h2>News</h2>
@@ -115,7 +82,7 @@
 
 			<!-- sports -->
 			<div class="col-lg-3 col-md-6 mb-4">
-				<div id = "effect" class="card">
+				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d4">
 							<h2>Sportsball</h2>
@@ -127,9 +94,48 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
+
+<!-- email -->
+<div class="col-lg-3 col-md-6 mb-4">
+	<div id="effect" class="card">
+		<div class="card-body">
+			<div class="sub-main-w3" id="d4">
+				<h3>Gmail
+					<img class="card-img-top" id='email-img' src="../assets/images/gmail.png" alt="">
+				</h3>
+
+				<div class="row">
+					<ul>
+						<li>{{{email}}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer">
+			<a href="https://mail.google.com/mail/u/1/#inbox" class="btn btn-primary">Go to Gmail</a>
+		</div>
+	</div>
+</div>
+
+<!-- calendar -->
+<div class="col-lg-4 col-md-4 mb-4">
+	<div id="effect" class="calendar-card">
+		<div class="card-body">
+			<div class="sub-main-w3" id="d2">
+				<h3>Calendar
+					<img class="card-img-top" id='email-img' src="../assets/images/gcalendar.png" alt="">
+				</h3>
+				{{!-- <img class="card-img-top" src="{{logo}}" alt=""> --}}
+				<iframe src="{{calendar}}"></iframe>
+			</div>
+		</div>
+		<div class="card-footer">
+			<a href="https://calendar.google.com/calendar/b/0/r/week" class="btn btn-primary">Go To Calendar</a>
+		</div>
+	</div>
+</div>
+
 
 		</div>
 	</div>

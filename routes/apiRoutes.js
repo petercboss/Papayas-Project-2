@@ -21,7 +21,7 @@ module.exports = (app, passport) => {
 
 	app.get('/', isLoggedIn, function (req, res) {
 		let username = req.user.firstname;
-		let calEvent = `https://calendar.google.com/calendar/embed?mode=DAY&src=${req.user.email}&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"`;
+		let calEvent = `https://calendar.google.com/calendar/embed?mode=DAY&src=${req.user.email}&ctz=America%2FChicago" style="border-width:0" width="315" height="200" frameborder="0" scrolling="no"`;
 		let emailLabel;
 		console.log(emailLabel);
 		// let emailLabel = $("#email").append("<p>" + emailLabel + "</p>");

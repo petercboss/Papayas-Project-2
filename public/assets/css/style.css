@@ -488,6 +488,12 @@ span.check-w3 {
     -ms-transition: 0.5s all;
 }
 
+#d2.sub-main-w3 {
+    width: 300px;
+    height: 151;
+    ;
+}
+
 .sub-main-w3 h6 {
     color: #fff;
     font-size: 15px;
@@ -963,49 +969,48 @@ input.checkbox:checked:after {
     text-decoration: none;
 }
 
+#effect.calendar-card {
+    margin-right: -15px;
+    margin-left: -15px;
+    background: rgba(19, 17, 17, 0.62);
+    box-shadow: 2px 2px 21px rgba(0, 0, 0, 0.29);
+    padding: .5em 1em;
+    text-decoration: none;
+    width: 335x;
+    height: 151;
+}
+
 #button {
     padding: .5em 1em;
     text-decoration: none;
 }
 
-#effect {
+
+#effect.card {
     width: 276px;
     height: 276px;
     padding: 0.4em;
-    /* position: relative; */
 }
 
-#effect h2 {
+#effect.calendar-card {
+    margin: 0;
+    padding: 0.4em;
+    width: 315px;
+    height: 200px;
+    padding: 0.4em;
+    text-align: center;
+}
+
+#effect h3 {
     margin: 0;
     padding: 0.4em;
     text-align: center;
 }
 
-
-/* .sub-main-w3 input[type="submit"] {
-    color: #fff;
-    background: #34bf49;
-    border: none;
-    width: 100%;
-    padding: .8em 0em;
-    outline: none;
-    font-size: 1.1em;
-    cursor: pointer;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-    font-family: 'Roboto', sans-serif;
-    margin-top: 1.5em;
-} */
-
 a.btn-primary {
     cursor: default;
     font-size: 90%;
-    opacity: .3;
+    opacity: .7;
     background: rgba(19, 17, 17, 0.62);
     border-style: none;
 }
@@ -1013,6 +1018,7 @@ a.btn-primary {
 a.btn-primary:hover {
     background: #ff4c4c;
     color: #fff;
+    opacity: none;
 }
 
 .g-signin2 {
@@ -1054,7 +1060,7 @@ h3 {
     width: 40px;
     height: 40px;
     float: right;
-    /* position: relative; */
+    background: #fff;
 }
 
 #d4 {
