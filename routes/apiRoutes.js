@@ -1,4 +1,4 @@
-module.exports = (app, passport) => { 
+module.exports = (app, passport) => {
     const express = require('express');
     const request = require('request');
     const db = require('../models/');
@@ -25,13 +25,13 @@ module.exports = (app, passport) => {
         let emailLabel;
         let data = [
             calendar().then(function(resolve) {
-                console.log(`this is my apiroutes test!`, resolve);
+                // console.log(`this is my apiroutes test!`, resolve);
                 // expected output: "Success!"
                 calEvent = resolve;
-                console.log(`final test`, calEvent);
+                // console.log(`final test`, calEvent);
               }),
             email().then(function(resolve) {
-                console.log(`this is my apiroutes test!`, resolve);
+                // console.log(`this is my apiroutes test!`, resolve);
                 // expected output: "Success!"
                 emailLabel = resolve;
                 console.log(`final email test`, emailLabel);

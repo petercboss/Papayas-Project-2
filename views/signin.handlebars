@@ -1,49 +1,54 @@
-{{!-- <!DOCTYPE html> --}}
-<html>
+<body>
+	<!--header-->
+	<div class="header-w3l">
+		<h1>Transparent Sign In Form</h1>
+	</div>
+	<!--//header-->
+	<!--main-->
+	<div class="main-content-agile">
+		<div class="sub-main-w3">
+			<h2>Sign In</h2>
+			<form id="signin" name="signin" method="post" action="signin">
+				<h6>Swiftly sign in with</h6>
+				<img src="../assets/images/google.png">
 
-	<head>
-		<title></title>
-	</head>
 
-	<body>
-		<!--header-->
-		<div class="header-w3l">
-			<h1>Transparent Sign In Form</h1>
+
+				<div class="icon1">
+					<label for="email"></label>
+					<input class="text" name="email" type="email" placeholder="Email" />
+				</div>
+
+				<div class="icon2">
+					<label for="password"></label>
+					<input name="password" type="password" placeholder="Password" />
+				</div>
+
+				<label class="anim">
+					<input type="checkbox" class="checkbox">
+					<span>Remember Me</span>
+					<a href="#">Forgot Password</a>
+				</label>
+
+
+				<div class="clear"></div>
+
+				<input class="btn" type="submit" value="Sign In" />
+
+
+			</form>
+
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<div class="data">
+		<p>Profile Details</p>
+		<img id="pic" class="img-circle" width='100' height='100' />
+		<p>Email Address</p>
+		<p id="email" class="alert alert-danger"></p>
+		<button onclick="signOut()" class="btn btn-danger">SignOut</button>
+	</div>
+
 		</div>
-		<!--//header-->
-		<!--main-->
-		<div class="main-content-agile">
-			<div class="sub-main-w3">
-				<h2>Sign In</h2>
-				<form id="signin" name="signin" method="post" action="signin">
-					<h6>Swiftly sign in with</h6>
-					<img src="../assets/images/google.png">
-
-					<div class="icon1">
-						<label for="email"></label>
-						<input class="text" name="email" type="email" placeholder="Email" />
-					</div>
-
-					<div class="icon2">
-						<label for="password"></label>
-						<input name="password" type="password" placeholder="Password" />
-					</div>
-
-					<label class="anim">
-						<input type="checkbox" class="checkbox">
-						<span>Remember Me</span>
-						<a href="#">Forgot Password</a>
-					</label>
+	</div>
 
 
-					<div class="clear"></div>
-
-					<input class="btn" type="submit" value="Sign In" />
-
-				</form>
-			</div>
-		</div>
-
-	</body>
-
-{{!-- </html> --}}
+</body>

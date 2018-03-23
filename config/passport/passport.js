@@ -41,7 +41,7 @@ module.exports = (passport, user) => {
                         lastname: req.body.lastname,
                         city: req.body.city
                     };
-             
+
                     User.create(data).then((newUser, created) => {
                         if (!newUser) {
                             return done(null, false);
@@ -66,7 +66,7 @@ module.exports = (passport, user) => {
             const isValidPassword = (userpass, password) => {
                 return bCrypt.compareSync(password, userpass);
             }
-            
+
             User.findOne({ where: { email: email }
     }).then(user => {
         if (!user) {
@@ -74,16 +74,16 @@ module.exports = (passport, user) => {
         }
         if (!isValidPassword(user.password, password)) {
             return done(null, false, { message: 'Incorrect password.' });
- 
+
         }
- 
+
         const userinfo = user.get();
             return done(null, userinfo);
- 
+
     }).catch(function(err) {
         console.log("Error:", err);
         return done(null, false, { message: 'Something went wrong with your Signin' });
- 
+
     });
     }
  ));

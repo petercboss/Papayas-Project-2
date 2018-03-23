@@ -452,13 +452,13 @@ body {
 }
 
 .icon1 {
-    padding-bottom: 1em!important;
+    padding-bottom: 1em !important;
 }
 
 .icon3,
 .icon4,
 .icon5 {
-    padding-bottom: 1em!important;
+    padding-bottom: 1em !important;
 }
 
 .rem-w3 {
@@ -512,7 +512,7 @@ span.check-w3 {
     cursor: pointer;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
-    font-size: 14px!important;
+    font-size: 14px !important;
     border: 1px solid #fff;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -588,7 +588,7 @@ input.checkbox {
     cursor: pointer;
     width: 1.2em;
     height: 1.2em;
-    margin: 0 6px 0 0!important;
+    margin: 0 6px 0 0 !important;
     float: left;
 }
 
@@ -1013,5 +1013,18 @@ a.btn-primary {
 
 a.btn-primary:hover {
     background: #ff4c4c;
+    color: #fff;
+}
+
+.g-signin2 {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+
+.data {
+    display: none;
+}
+
+p {
     color: #fff;
 }
