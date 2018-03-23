@@ -21,16 +21,10 @@ module.exports = (app, passport) => {
     }));
 
     app.get('/', isLoggedIn, function (req, res) {
-        let calEvent;
+        let calEvent = `https://calendar.google.com/calendar/embed?mode=DAY&src=${req.user.email}&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"`;
         let emailLabel;
         let data = [
-            calendar().then(function(resolve) {
-                // console.log(`this is my apiroutes test!`, resolve);
-                // expected output: "Success!"
-                calEvent = resolve;
-                // console.log(`final test`, calEvent);
-              }),
-            email().then(function(resolve) {
+        email().then(function(resolve) {
                 // console.log(`this is my apiroutes test!`, resolve);
                 // expected output: "Success!"
                 emailLabel = resolve;
