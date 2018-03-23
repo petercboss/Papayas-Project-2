@@ -23,6 +23,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    sports: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: 'Chicago Bulls'
+    },
     status: {
       type: DataTypes.ENUM('active', 'inactive'),
       defaultValue: 'active'
