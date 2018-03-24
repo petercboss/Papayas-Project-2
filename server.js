@@ -4,7 +4,8 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const env = require('dotenv').load();
 const db = require('./models');
-
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const passportSetup = require('./config/passport/passport');
 const port = process.env.PORT || 8080;
 
 const app = express();
