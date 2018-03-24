@@ -36,7 +36,7 @@ module.exports = (app, passport) => {
 
 	app.get("/", isLoggedIn, function (req, res) {
 		let username = req.user.firstname;
-		let calEvent = `https://calendar.google.com/calendar/embed?mode=DAY&src=${req.user.email}&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"`;
+		let calEvent = `https://calendar.google.com/calendar/embed?mode=WEEK&src=${req.user.email}&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"`;
 		let emailLabel;
 		request(
 			`http://api.openweathermap.org/data/2.5/weather?q=${
@@ -116,9 +116,9 @@ module.exports = (app, passport) => {
 						let newsText = [];
 						for (i = 0; i < 5; i++) {
 							newsText.push(
-								`<li><a href="${news.articles[i].url}">${
+								`<li><a href="${news.articles[i].url}" target="_blank">${
 										news.articles[i].title
-									}</a></li>`
+									}</a></li><br>`
 							);
 						}
 						request(

@@ -347,15 +347,13 @@ img {
 /*end reset*/
 
 body {
-    background: url(/assets/images/banner.jpg)no-repeat 0px 0px;
+    background: url(/assets/images/banner.jpg);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
-    background-attachment: fixed;
     background-position: center;
-    background-size: cover;
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
@@ -670,7 +668,7 @@ input.checkbox:checked:after {
         font-size: 4em;
     }
     .header-w3l {
-        padding: 7em 0 3.5em;
+        padding: 1.5em 0 1.5em;
     }
     .footer {
         padding: 8em 0;
@@ -679,7 +677,7 @@ input.checkbox:checked:after {
 
 @media(max-width: 1600px) {
     .header-w3l {
-        padding: 4.5em 0 3.5em;
+        padding: 1.5em 0 1.5em;
     }
     .header-w3l h1 {
         font-size: 3.5em;
@@ -697,7 +695,7 @@ input.checkbox:checked:after {
         font-size: 1.5em;
     }
     .header-w3l {
-        padding: 2.5em 0;
+        padding: 1.5em 0;
     }
     .main-content-agile {
         width: 38%;
@@ -706,7 +704,7 @@ input.checkbox:checked:after {
         padding: 3em 0;
     }
     .header-w3l {
-        padding: 4.5em 0;
+        padding: 1.5em 0;
     }
     .footer {
         padding: 5.37em 0;
@@ -718,7 +716,7 @@ input.checkbox:checked:after {
         width: 40%;
     }
     .header-w3l {
-        padding: 3em 0;
+        padding: 1.5em 0;
     }
     .footer {
         padding: 2.74em 0;
@@ -730,7 +728,7 @@ input.checkbox:checked:after {
         width: 43%;
     }
     .header-w3l {
-        padding: 3.5em 0;
+        padding: 1.5em 0;
     }
     .footer {
         padding: 3.24em 0;
@@ -762,7 +760,7 @@ input.checkbox:checked:after {
         width: 51%;
     }
     .header-w3l {
-        padding: 5em 0 3em;
+        padding: 1.5em 0 1.5em;
     }
     .footer {
         padding: 3.44em 0;
@@ -796,7 +794,7 @@ input.checkbox:checked:after {
 
 @media(max-width: 768px) {
     .header-w3l {
-        padding: 3em 0 2em;
+        padding: 1.5em 0 1.5em;
     }
     .main-content-agile {
         width: 65%;
@@ -911,12 +909,12 @@ input.checkbox:checked:after {
     margin-right: -15px;
     margin-left: -15px;
     background: rgba(19, 17, 17, 0.014);
-    box-shadow: 2px 2px 21px rgba(0, 0, 0, 0.29);
 }
 
 .card {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
     background: rgba(19, 17, 17, 0.62);
     box-shadow: 2px 2px 21px rgba(0, 0, 0, 0.29);
     padding: .5em 1em;
@@ -924,8 +922,8 @@ input.checkbox:checked:after {
 }
 
 #effect.calendar-card {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: 15px;
+    margin-left: 15px;
     background: rgba(19, 17, 17, 0.62);
     box-shadow: 2px 2px 21px rgba(0, 0, 0, 0.29);
     padding: .5em 1em;
@@ -940,7 +938,7 @@ input.checkbox:checked:after {
 }
 
 #effect.card {
-    width: 276px;
+    width: 300px;
     height: 276px;
     padding: 0.4em;
 }
@@ -949,7 +947,7 @@ input.checkbox:checked:after {
     margin: 0;
     padding: 0.4em;
     width: 315px;
-    height: 200px;
+    height: 276px;
     padding: 0.4em;
     text-align: center;
 }
@@ -1022,13 +1020,39 @@ h3 {
 
 }
 
+#d1 {
+    background: #FFF;
+}
+
 .sports {
     overflow-y: auto;
+    overflow-x: auto;
 }
 
 .news li {
     text-decoration: none;
 }
+
+.navbar {
+    margin-bottom: 0;
+}
+
+#logout a, .news a  {
+    text-decoration: none;
+    all: unset;
+}
+
+.news a {
+    color: white;
+    font-size: 15px;
+}
+
+#logout a:hover, .news a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.game {	display: block; 	width: 800px; 	height: 600px; 	margin: 20px auto;} 
 
 @import url(https://fonts.googleapis.com/css?family=Raleway+Dots);
 .sun {

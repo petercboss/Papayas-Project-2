@@ -162,36 +162,36 @@ module.exports = function (email) {
 								// console.log(response.payload.headers);
 
 								// Message Sent to
-								let sentTo = emails[0].value;
-								console.log('Sent To ');
-								console.log(sentTo);
+								//let sentTo = emails[0].value;
+								//console.log('Sent To ');
+								//console.log(sentTo);
 
 								// Message Received On
-								let receivedOn = emails[1].value;
-								console.log('Recieved On ');
-								console.log(receivedOn);
+								//let receivedOn = emails[1].value;
+								//console.log('Recieved On ');
+								//console.log(receivedOn);
 
 								// Message Sent From
 								let sentFrom = JSON.stringify(emails[18]);
-								console.log('Sent From ');
-								console.log(sentFrom);
+								//console.log('Sent From ');
+								//console.log(sentFrom);
 
 								// Subject of the Message
 								let messageSubject = JSON.stringify(emails[21]);
-								console.log('Subject: ');
-								console.log(messageSubject);
+								//console.log('Subject: ');
+								//console.log(messageSubject);
 								// console.log(response.payload.mimeType);
 
 								// A short part of the message text
 								let emailSnippet = response.snippet;
-								console.log('Snippet: ');
-								console.log(emailSnippet);
+								//console.log('Snippet: ');
+								//console.log(emailSnippet);
 
 								// console.log("response.payload.headers: ");
 								// console.log(response.payload.headers);
 								// emailArray.push(`<ul><li>Sent To: ${sentTo}</li><li>Received On: ${receivedOn}</li><li>${sentFrom}</li><li>${messageSubject}</li><li>${emailSnippet}</li></ul>`);
 								// resolve(emailArray);
-								emailArray.push(`<ul>Message # ${i++}<li>Sent To: ${sentTo}</li><li>Received On: ${receivedOn}</li><li>${emailSnippet}</li></ul>`);
+								emailArray.push(`<ul>Message # ${i++}<li>${messageSubject}</li><li>${emailSnippet}</li></ul>`);
 								resolve(emailArray);
 							}
 						);

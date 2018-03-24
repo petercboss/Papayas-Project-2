@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
-		<button type="button" class="btn btn-secondary" id="logout" type="logout" value="Log Out">Log Out!</button>
+		<button type="button" class="btn btn-secondary" id="logout" type="logout" value="Log Out"><a href="/logout">Log Out!</a></button>
 	</div>
 </nav>
 <!-- Page Content -->
@@ -31,7 +31,7 @@
 		<div class="col-lg-4 col-md-6 mb-4 sports">
 			<div id="effect" class="card">
 				<div class="card-body">
-					<div class="sub-main-w3" id="d4">
+					<div class="sub-main-w3" id="d1">
 						<h3>Gmail
 							<img class="card-img-top" id='email-img' src="../assets/images/gmail.png" alt="">
 						</h3>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<a href="https://mail.google.com/mail/u/1/#inbox" class="btn btn-primary">Go to Gmail</a>
+					<a href="https://mail.google.com/mail/u/1/#inbox" target="_blank" class="btn btn-primary">Go to Gmail</a>
 				</div>
 			</div>
 		</div>
@@ -68,14 +68,13 @@
 					<div class="card-body">
 						<div class="sub-main-w3" id="d2">
 							<div class="row">
-								<h2>Weather</h2>
-								<h6>{{city}}</h6>
+								<h2>{{city}}</h2>
 							</div>
 							<div id="icon" class="row">
 								{{{weatherIcon}}}
 							</div>
 							<div class="row">
-								<h6>{{weather}}</h6>
+								<h2>{{weather}}</h2>
 							</div>
 						</div>
 					</div>
@@ -86,7 +85,7 @@
 				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d3">
-							<h2>News</h2>
+							<h2>BBC News</h2>
 							<div class="news">
 								<ul>{{{news}}}</ul>
 							</div>
