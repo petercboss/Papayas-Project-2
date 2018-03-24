@@ -56,6 +56,10 @@ module.exports = (app, passport) => {
         });
     });
 
+    app.get('/public/assets/img/:png', function (req, res) {
+            res.send(true);
+    });
+
 	function isLoggedIn(req, res, next) {
 		if (req.isAuthenticated())
 			return next();
