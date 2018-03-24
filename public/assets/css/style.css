@@ -1017,7 +1017,17 @@ h3 {
 }
 
 #d4 {
-    background: #fff;
+    background: #FC4E51;
+    overflow-y: auto;
+
+}
+
+.sports {
+    overflow-y: auto;
+}
+
+.news li {
+    text-decoration: none;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Raleway+Dots);

@@ -116,9 +116,9 @@ module.exports = (app, passport) => {
 						let newsText = [];
 						for (i = 0; i < 5; i++) {
 							newsText.push(
-								`<a href="${news.articles[i].url}">${
+								`<li><a href="${news.articles[i].url}">${
 										news.articles[i].title
-									}</a>`
+									}</a></li>`
 							);
 						}
 						request(
@@ -138,7 +138,7 @@ module.exports = (app, passport) => {
 										let allEvents = [];
 										for (i = 0; i < 5; i++) {
 											allEvents.push(
-												`<div>${fiveEvents.events[i].strFilename}</div>`
+												`<li>${fiveEvents.events[i].strFilename}</li>`
 											);
 										}
 										email().then(function (resolve) {
@@ -146,11 +146,11 @@ module.exports = (app, passport) => {
 											emailLabel = resolve;
 											res.render("index", {
 												username: username,
-												news: newsText,
+												news: newsText.join(''),
 												city: weatherCity,
 												weatherIcon: currentWeather,
 												weather: weatherTemp,
-												sports: allEvents,
+												sports: allEvents.join(''),
 												logo: sportsLogo,
 												email: emailLabel,
 												calendar: calEvent
