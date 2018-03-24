@@ -50,7 +50,7 @@
 
 
 		<!-- email -->
-		<div class="col-lg-4 col-md-6 mb-4">
+		<div class="col-lg-4 col-md-6 mb-4 sports">
 			<div id="effect" class="card">
 				<div class="card-body">
 					<div class="sub-main-w3" id="d4">
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 				<!-- calendar -->
-		<div class="col-lg-4 col-md-4 mb-4">
+		<div class="col-lg-4 col-md-4 mb-4 sports">
 			<div id="effect" class="calendar-card">
 				<div class="card-body">
 					<div class="sub-main-w3" id="d2">
@@ -81,9 +81,6 @@
 						{{!-- <img class="card-img-top" src="{{logo}}" alt=""> --}}
 						<iframe src="{{calendar}}"></iframe>
 					</div>
-				</div>
-				<div class="card-footer">
-					<a href="https://calendar.google.com/calendar/b/0/r/week" class="btn btn-primary">Go To Calendar</a>
 				</div>
 			</div>
 		</div>
@@ -107,32 +104,30 @@
 				</div>
 			</div>
 			<!-- news -->
-			<div class="col-lg-4 col-md-6 mb-4">
+			<div class="col-lg-4 col-md-6 mb-4 sports">
 				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d3">
 							<h2>News</h2>
-							<div>{{{news}}}</div>
+							<div class="news">
+								<ul>{{{news}}}</ul>
+							</div>
 						</div>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-primary">Hide News</a>
 					</div>
 				</div>
 			</div>
 
 
 			<!-- sports -->
-			<div class="col-lg-4 col-md-6 mb-4">
+			<div class="col-lg-4 col-md-6 mb-4 sports">
 				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d4">
 							<h2>Sports</h2>
 							<img class="card-img-top" src="{{logo}}" alt="">
-							<h6>{{{sports}}}</h6>
-						</div>
-						<div class="card-footer">
-							<a class="btn btn-primary">Hide Sports</a>
+							<div>
+								<ul>{{{sports}}}</ul>
+							</div>
 						</div>
 					</div>
 				</div>
