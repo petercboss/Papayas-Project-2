@@ -92,14 +92,17 @@
 				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d2">
-							<h2>Weather</h2>
-							<h6>{{city}}</h6>
-							<img class="card-img-top" src="../assets/images/weather.png" alt="">
-							<h6>{{weather}}</h6>
+							<div class="row">
+								<h2>Weather</h2>
+								<h6>{{city}}</h6>
+							</div>
+							<div id="icon" class="row">
+								{{{weatherIcon}}}
+							</div>
+							<div class="row">
+								<h6>{{weather}}</h6>
+							</div>
 						</div>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-primary">Hide Weather</a>
 					</div>
 				</div>
 			</div>

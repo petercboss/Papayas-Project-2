@@ -1,6 +1,6 @@
 module.exports = (app, passport) => {
 	const express = require('express');
-	const request = require('request');
+    const request = require('request');
 	const db = require('../models/');
 	const authController = require('../controllers/authcontroller');
 	const email = require('../controllers/email');
@@ -27,6 +27,68 @@ module.exports = (app, passport) => {
             let weather = JSON.parse(body);
             let weatherCity = `${weather.name}`;
             let weatherTemp = `${weather.main.temp}°`;
+            let weatherIcon = weather.weather[0].main;
+            let currentWeather;
+            function setIcon(weatherIcon) {
+                switch (weatherIcon) {
+                    case "Rain":
+                        currentWeather = `<div class="rain">
+                        <ul>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                       </ul>
+                     </div>`;
+                        break;
+                    case "Drizzle":
+                        currentWeather = `<div class="rain">
+                        <ul>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                       </ul>
+                     </div>`;
+                        break;
+                    case "Clear":
+                        currentWeather = `<div class="sun"></div>`;
+                        break;
+                    case "Clouds":
+                        currentWeather = `<div class="cloud"><div class="cloud1">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                          </ul>
+                        </div>
+                        <div class="cloud1 c_shadow">
+                          <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                          </ul>
+                        </div>
+                      </div>`;
+                        break;
+                    case "Thunderstorm":
+                        currentWeather = '<div class="thunder"></div>';
+                        break;
+                    case "Snow":
+                        currentWeather = `<div class="sleet">
+                        <ul>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                       </ul>
+                     </div>`;
+                        break;
+                    case "Haze":
+                        currentWeather = '<div class="haze"></div>';
+                        break;
+                }
+            };
+            setIcon(weatherIcon);
             request(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=a49ca69ef1f34e03abdc6463849a01bf`, (err, response, body) => {
                 let news = JSON.parse(body);
                 let newsText = [];
@@ -38,7 +100,7 @@ module.exports = (app, passport) => {
                     let teamID = sports.teams[0].idTeam;
                     let teamPhoto = sports.teams[0].strTeamLogo;
                     let sportsText = `My teams: ${sports.teams[0].strTeam}`;
-                    let sportsLogo = `${sports.teams[0].strTeamLogo}`;
+                    let sportsLogo = `${sports.teams[0].strTeamBadge}`;
                     request(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=${teamID}`, (err,response,body) => {
                         let fiveEvents = JSON.parse(body);
                         let allEvents = [];
@@ -48,7 +110,7 @@ module.exports = (app, passport) => {
                         email().then(function(resolve) {
                             console.log(resolve);
                             emailLabel = resolve;
-                            res.render('index', { username: username, news: newsText, city: weatherCity, weather: weatherTemp, sports: allEvents, logo: sportsLogo, email: emailLabel, calendar: calEvent });
+                            res.render('index', { username: username, news: newsText, city: weatherCity, weatherIcon: currentWeather, weather: weatherTemp, sports: allEvents, logo: sportsLogo, email: emailLabel, calendar: calEvent });
                         });
                     });           
                 });          
