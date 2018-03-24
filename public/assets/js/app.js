@@ -4,15 +4,31 @@
 // 	document.getElementById("gnomeDiv").style.animation = "mynewmove 4s 2";
 // }
 $(document).ready(function () {
-	$("#b").delay(500).animate({bottom:+300}, 1000);
-	$("#b").delay(1000).animate({bottom:-300}, 1000);      
-	$("#b").animate({right:-400}, 1000);
-	$("#b").delay(1500).animate({left:-900}, 2000);
-	$("#b").delay(3000).animate({left:+900}, 1000);
-	$("#b").delay(5000).animate({top:-900}, 1000);
-	$("#b").delay(6000).animate({top:+1300}, 1000);
-	$("#b").delay(7000).animate({top:-900}, 6000);
-	});
+	$("#b").delay(500).animate({
+		bottom: +300
+	}, 1000);
+	$("#b").delay(1000).animate({
+		bottom: -300
+	}, 1000);
+	$("#b").animate({
+		right: -400
+	}, 1000);
+	$("#b").delay(1500).animate({
+		left: -900
+	}, 2000);
+	$("#b").delay(3000).animate({
+		left: +900
+	}, 1000);
+	$("#b").delay(5000).animate({
+		top: -900
+	}, 1000);
+	$("#b").delay(6000).animate({
+		top: +1300
+	}, 1000);
+	$("#b").delay(7000).animate({
+		top: -900
+	}, 6000);
+});
 // End kyles gnome animation
 
 
@@ -36,3 +52,8 @@ function signOut() {
 		$('.g-signin2').css('display', 'block');
 	})
 }
+
+$(".btn-secondary").on("click", function(event) {
+	event.preventDefault();
+	alert("You've Clicked Submit!");
+});

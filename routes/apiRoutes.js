@@ -29,6 +29,11 @@ module.exports = (app, passport) => {
 		failureRedirect: '/signin'
 	}));
 
+	app.post("/logout", passport.authenticate("local-logout", {
+		successRedirect: "/signin",
+		failureRedirect: "/"
+	}));
+
 	app.get("/", isLoggedIn, function (req, res) {
 		let username = req.user.firstname;
 		let calEvent = `https://calendar.google.com/calendar/embed?mode=DAY&src=${req.user.email}&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"`;
