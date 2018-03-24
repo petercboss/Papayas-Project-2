@@ -1,24 +1,24 @@
-module.exports = (app, passport) => { 
-    const express = require('express');
-    const request = require('request');
-    const db = require('../models/');
-    const authController = require('../controllers/authcontroller');
-    const email = require('../controllers/email');
+module.exports = (app, passport) => {
+	const express = require('express');
+	const request = require('request');
+	const db = require('../models/');
+	const authController = require('../controllers/authcontroller');
+	const email = require('../controllers/email');
 
-    app.get('/signup', authController.signup);
-    app.get('/signin', authController.signin);
-    app.get('/logout', authController.logout);
+	app.get('/signup', authController.signup);
+	app.get('/signin', authController.signin);
+	app.get('/logout', authController.logout);
 
-    app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/',
-        failureRedirect: '/signup'
-    }));
+	app.post('/signup', passport.authenticate('local-signup', {
+		successRedirect: '/',
+		failureRedirect: '/signup'
+	}));
 
-    app.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/',
-        failureRedirect: '/signin'
-    }));
-
+	app.post('/signin', passport.authenticate('local-signin', {
+		successRedirect: '/',
+		failureRedirect: '/signin'
+	}));
+  
     app.get('/', isLoggedIn, function (req, res) {
         let username = req.user.firstname;
         let calEvent = `https://calendar.google.com/calendar/embed?mode=DAY&src=${req.user.email}&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"`;
@@ -56,9 +56,9 @@ module.exports = (app, passport) => {
         });
     });
 
-    function isLoggedIn(req, res, next) {
-        if (req.isAuthenticated())
-            return next();
-        res.redirect('/signin');
-    }
+	function isLoggedIn(req, res, next) {
+		if (req.isAuthenticated())
+			return next();
+		res.redirect('/signin');
+	}
 }

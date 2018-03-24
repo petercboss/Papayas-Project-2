@@ -124,19 +124,6 @@ module.exports = function (email) {
 						console.log("The API returned an error: " + err);
 						return;
 					}
-					// var labels = response.labels;
-					// if (labels.length == 0) {
-					// 	console.log("No labels found.");
-					// } else {
-					// 	console.log("Labels:");
-					// 	var emailArray = [];
-					// 	for (var i = 0; i < labels.length; i++) {
-					// 		var label = labels[i];
-					// 		emailArray.push(label.name);
-					// 		console.log("- %s", label.name);
-					// 	}
-					// 	resolve(emailArray);
-					// }
 				}
 			);
 			// Lists the messages in the user's mailbox with Users.messages: list
@@ -149,16 +136,6 @@ module.exports = function (email) {
 						console.log("The API returned an error: " + err);
 						return;
 					}
-					// console.log("Request body: ");
-					// console.log(response);
-					// console.log("nextPageToken: ");
-					// console.log(response.nextPageToken);
-					// console.log(response.messages[0].id);
-					// console.log(response.messages[1].id);
-					// console.log(response.messages[2].id);
-					// console.log(response.messages[3].id);
-					// console.log(response.messages[4].id);
-
 
 					var emailArray = [];
 					for (i = 0; i < 5; i++) {
@@ -166,10 +143,8 @@ module.exports = function (email) {
 						gmail.users.messages.get({
 								auth: auth,
 								userId: "me",
-								// id: response.messages.id,
 								id: currentMessages,
 								format: "full",
-							//format: "raw"
 							},
 							function (err, response) {
 								if (err) {
@@ -177,28 +152,43 @@ module.exports = function (email) {
 									return;
 								}
 
+								let emails = response.payload.headers;
+								// console.log(emails);
+
 								// console.log(response.payload.headers);
 
-								// console.log("Message Sent to: ");
+								// Message Sent to
+								let sentTo = emails[0].value;
+								console.log('Sent To ');
+								console.log(sentTo);
 
-								// console.log(response.payload.headers[0].value);
+								// Message Received On
+								let receivedOn = emails[1].value;
+								console.log('Recieved On ');
+								console.log(receivedOn);
 
-								// console.log("Message Received On: ");
-								// console.log(response.payload.headers[22].value);
+								// Message Sent From
+								let sentFrom = JSON.stringify(emails[18]);
+								console.log('Sent From ');
+								console.log(sentFrom);
 
-								// console.log("Message Sent From: ");
-								// console.log(response.payload.headers[17].value);
+								// Subject of the Message
+								let messageSubject = JSON.stringify(emails[21]);
+								console.log('Subject: ');
+								console.log(messageSubject);
+								// console.log(response.payload.mimeType);
 
-								// console.log("Subject of the Message: ");
-								// console.log(response.payload.headers[21].value);
+								// A short part of the message text
+								let emailSnippet = response.snippet;
+								console.log('Snippet: ');
+								console.log(emailSnippet);
 
-								// console.log("A short part of the message text: ");
-								
-
-								console.log(response.snippet);
-                emailArray.push(response.snippet);
-                resolve(emailArray);
-                
+								// console.log("response.payload.headers: ");
+								// console.log(response.payload.headers);
+								// emailArray.push(`<ul><li>Sent To: ${sentTo}</li><li>Received On: ${receivedOn}</li><li>${sentFrom}</li><li>${messageSubject}</li><li>${emailSnippet}</li></ul>`);
+								// resolve(emailArray);
+								emailArray.push(`<ul>Message # ${i++}<li>Sent To: ${sentTo}</li><li>Received On: ${receivedOn}</li><li>${emailSnippet}</li></ul>`);
+								resolve(emailArray);
 							}
 						);
 					}
