@@ -187,7 +187,6 @@ module.exports = function (email) {
 								// console.log(response.payload.headers);
 								// emailArray.push(`<ul><li>Sent To: ${sentTo}</li><li>Received On: ${receivedOn}</li><li>${sentFrom}</li><li>${messageSubject}</li><li>${emailSnippet}</li></ul>`);
 								// resolve(emailArray);
-
 								emailArray.push(`<ul>Message # ${i++}<li>Sent To: ${sentTo}</li><li>Received On: ${receivedOn}</li><li>${emailSnippet}</li></ul>`);
 								resolve(emailArray);
 							}
