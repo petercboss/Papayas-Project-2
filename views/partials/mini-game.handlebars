@@ -1,0 +1,161 @@
+<script type="text/javascript">
+
+var config = {
+    type: Phaser.HEADLESS,
+    width: 600,
+    height: 400,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+
+var player;
+var parentheses;
+var bombs;
+var platforms;
+var cursors;
+var score = 0;
+var gameOver = false;
+var scoreText;
+var frame = [
+	'.......3.....',
+	'......333....',
+	'....5343335..',
+	'...332333333.',
+	'..33333333333',
+	'..33333333333',
+	'..28583338582',
+	'..28588888582',
+	'..22222222222',
+	'...222222222.',
+	'.F....222E...',
+	'3E34.EE2E.E..',
+	'.E.55.626.5..',
+	'......EEE.5..',
+	'.....E..E....',
+	'.....E..E....'
+];
+
+var game = new Phaser.Game(config);
+
+function preload ()
+{
+    this.load.image('sky', '../public/assets/img/sky.png');
+    this.load.image('ground', '../public/assets/img/platform.png');
+    this.load.image('parentheses', '../public/assets/img/parentheses.png');
+    this.load.image('bomb', '../public/assets/img/bomb.png');
+    this.load.image('dude', '../public/assets/img/gnome.png');
+}
+
+function create ()
+{
+    this.add.image(300, 100, 'sky');
+    platforms = this.physics.add.staticGroup();
+    platforms.create(300, 400, 'ground').setScale(2).refreshBody();
+    platforms.create(710, 130, 'ground');
+    platforms.create(0, 190, 'ground');
+    platforms.create(590, 270, 'ground');
+
+    player = this.physics.add.image(150, 200, 'dude');
+    player.setBounce(0.2);
+    player.setCollideWorldBounds(true);
+
+    cursors = this.input.keyboard.createCursorKeys();
+
+    parentheses = this.physics.add.group({
+        key: 'parentheses',
+        repeat: 9,
+        setXY: { x: 12, y: 0, stepX: 60 }
+    });
+
+    parentheses.children.iterate(function (child) {
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+    });
+
+    bombs = this.physics.add.group();
+
+    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '20px', fill: '#000' });
+
+    this.physics.add.collider(player, platforms);
+    this.physics.add.collider(parentheses, platforms);
+    this.physics.add.collider(bombs, platforms);
+    this.physics.add.overlap(player, parentheses, collectStar, null, this);
+    this.physics.add.collider(player, bombs, hitBomb, null, this);
+}
+
+function update ()
+{
+    if (gameOver)
+    {
+        return;
+    }
+
+    if (cursors.left.isDown)
+    {
+        player.setVelocityX(-140);
+        player.flipX = false;
+    }
+    else if (cursors.right.isDown)
+    {
+        player.setVelocityX(140);
+        player.flipX = true;
+    }
+    else
+    {
+        player.setVelocityX(0);
+
+    }
+
+    if (cursors.up.isDown && player.body.touching.down)
+    {
+        player.setVelocityY(-300);
+    }
+}
+
+function collectStar (player, parenthese)
+{
+    parenthese.disableBody(true, true);
+
+    score += 10;
+    scoreText.setText('Score: ' + score);
+
+    if (parentheses.countActive(true) === 0)
+    {
+        parentheses.children.iterate(function (child) {
+
+            child.enableBody(true, child.x, 0, true, true);
+
+        });
+
+        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+
+        var bomb = bombs.create(x, 16, 'bomb');
+        bomb.setBounce(1);
+        bomb.setCollideWorldBounds(true);
+        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+        bomb.allowGravity = false;
+
+    }
+}
+
+function hitBomb (player, bomb)
+{
+    this.physics.pause();
+
+    player.setTint(0xff0000);
+
+    player.anims.play('turn');
+
+    gameOver = true;
+}
+
+</script>

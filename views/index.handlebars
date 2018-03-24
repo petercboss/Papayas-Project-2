@@ -28,11 +28,15 @@
 </nav>
 <!-- Page Content -->
 <div class="container">
+			{{!-- gnome animation --}}
+			<div style="position:relative">
+        		<div id="b" style="position:absolute;"> 
+            		<img src="../assets/images/gnome.png" alt="gnome">
+        		</div>
+    		</div>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="gnome">
-				<img id="gnomeDiv" src="../assets/images/gnome.png" alt="Gnome">
-			</div>
+
 		</div>
 
 		<!--header-->
@@ -45,41 +49,65 @@
 
 
 
+		<!-- email -->
+		<div class="col-lg-4 col-md-6 mb-4">
+			<div id="effect" class="card">
+				<div class="card-body">
+					<div class="sub-main-w3" id="d4">
+						<h3>Gmail
+							<img class="card-img-top" id='email-img' src="../assets/images/gmail.png" alt="">
+						</h3>
 
+						<div class="row">
+							<ul>
+								<li>{{{email}}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer">
+					<a href="https://mail.google.com/mail/u/1/#inbox" class="btn btn-primary">Go to Gmail</a>
+				</div>
+			</div>
+		</div>
+				<!-- calendar -->
+		<div class="col-lg-4 col-md-4 mb-4">
+			<div id="effect" class="calendar-card">
+				<div class="card-body">
+					<div class="sub-main-w3" id="d2">
+						<h3>Calendar
+							<img class="card-img-top" id='email-img' src="../assets/images/gcalendar.png" alt="">
+						</h3>
+						{{!-- <img class="card-img-top" src="{{logo}}" alt=""> --}}
+						<iframe src="{{calendar}}"></iframe>
+					</div>
+				</div>
+				<div class="card-footer">
+					<a href="https://calendar.google.com/calendar/b/0/r/week" class="btn btn-primary">Go To Calendar</a>
+				</div>
+			</div>
+		</div>
 			<!-- weather -->
-			<div class="col-lg-3 col-md-6 mb-4">
+			<div class="col-lg-4 col-md-6 mb-4">
 				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d2">
-							<h2>Weather</h2>
-							<h6>{{city}}</h6>
-							<img class="card-img-top" src="../assets/images/weather.png" alt="">
-							<h6>{{weather}}</h6>
+							<div class="row">
+								<h2>Weather</h2>
+								<h6>{{city}}</h6>
+							</div>
+							<div id="icon" class="row">
+								{{{weatherIcon}}}
+							</div>
+							<div class="row">
+								<h6>{{weather}}</h6>
+							</div>
 						</div>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-primary">Hide Weather</a>
 					</div>
 				</div>
 			</div>
-
-			<!-- email -->
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div id = "effect" class="card">
-					<div class="card-body">
-						<div class="sub-main-w3" id="d4">
-							<h2>Email</h2>
-							<p>{{email}}</p>
-						</div>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-primary">Hide Email</a>
-					</div>
-				</div>
-			</div>
-
 			<!-- news -->
-			<div class="col-lg-3 col-md-6 mb-4">
+			<div class="col-lg-4 col-md-6 mb-4">
 				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d3">
@@ -95,11 +123,11 @@
 
 
 			<!-- sports -->
-			<div class="col-lg-3 col-md-6 mb-4">
+			<div class="col-lg-4 col-md-6 mb-4">
 				<div id="effect" class="card">
 					<div class="card-body">
 						<div class="sub-main-w3" id="d4">
-							<h2>Sportsball</h2>
+							<h2>Sports</h2>
 							<img class="card-img-top" src="{{logo}}" alt="">
 							<h6>{{{sports}}}</h6>
 						</div>
@@ -109,51 +137,8 @@
 					</div>
 				</div>
 			</div>
-
-<!-- email -->
-<div class="col-lg-3 col-md-6 mb-4">
-	<div id="effect" class="card">
-		<div class="card-body">
-			<div class="sub-main-w3" id="d4">
-				<h3>Gmail
-					<img class="card-img-top" id='email-img' src="../assets/images/gmail.png" alt="">
-				</h3>
-
-				<div class="row">
-					<ul>
-						<li>{{{email}}}</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="card-footer">
-			<a href="https://mail.google.com/mail/u/1/#inbox" class="btn btn-primary">Go to Gmail</a>
 		</div>
 	</div>
-</div>
-
-<!-- calendar -->
-<div class="col-lg-4 col-md-4 mb-4">
-	<div id="effect" class="calendar-card">
-		<div class="card-body">
-			<div class="sub-main-w3" id="d2">
-				<h3>Calendar
-					<img class="card-img-top" id='email-img' src="../assets/images/gcalendar.png" alt="">
-				</h3>
-				{{!-- <img class="card-img-top" src="{{logo}}" alt=""> --}}
-				<iframe src="{{calendar}}"></iframe>
-			</div>
-		</div>
-		<div class="card-footer">
-			<a href="https://calendar.google.com/calendar/b/0/r/week" class="btn btn-primary">Go To Calendar</a>
-		</div>
-	</div>
-</div>
-
-
-		</div>
-	</div>
-
 	<!-- footer -->
 	<div class="footer">
 		<p>&copy; 2018 The Gnome Page. All rights reserved | Design by
