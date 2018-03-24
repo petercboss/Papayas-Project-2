@@ -5,6 +5,7 @@ module.exports = function (email) {
 		var readline = require("readline");
 		var google = require("googleapis");
 		var googleAuth = require("google-auth-library");
+		var GoogleStrategy = require("passport-google-oauth20").OAuth2Strategy;
 
 		// If modifying these scopes, delete your previously saved credentials
 		// at ~/.credentials/gmail-nodejs-quickstart.json
@@ -12,8 +13,7 @@ module.exports = function (email) {
 			"https://mail.google.com/",
 			"https://www.googleapis.com/auth/gmail.metadata",
 			"https://www.googleapis.com/auth/gmail.readonly",
-			"https://www.googleapis.com/auth/gmail.modify",
-			"https://www.googleapis.com/auth/gmail.compose"
+			"https://www.googleapis.com/auth/calendar"
 		];
 		var TOKEN_DIR =
 			(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) +
@@ -42,12 +42,14 @@ module.exports = function (email) {
 		 * @param {function} callback The callback to call with the authorized client.
 		 */
 		function authorize(credentials, callback) {
-			var clientSecret = credentials.installed.client_secret;
 			var clientId = credentials.installed.client_id;
+			var clientSecret = credentials.installed.client_secret;
 			var redirectUrl = credentials.installed.redirect_uris[0];
 			var auth = new googleAuth();
 			var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
-			// var callbackURL = config.baseurl + '/oauth2callback';
+			// var callbackURL = redirect_uris[0] + "/oauth2callback";
+			// console.log(callbackURL);
+			// console.log(window.location.origin);
 
 			// Check if we have previously stored a token.
 			fs.readFile(TOKEN_PATH, function (err, token) {
@@ -73,6 +75,8 @@ module.exports = function (email) {
 				access_type: "offline",
 				scope: SCOPES
 			});
+			// Need to go to oAuth Page Now
+
 			console.log("Authorize this app by visiting this url: ", authUrl);
 			var rl = readline.createInterface({
 				input: process.stdin,
