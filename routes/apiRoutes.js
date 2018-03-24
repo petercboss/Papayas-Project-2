@@ -3,7 +3,7 @@ module.exports = (app, passport) => {
 	const request = require('request');
 	const db = require('../models/');
 	const authController = require('../controllers/authcontroller');
-	const email = require('../controllers/email');
+	//const email = require('../controllers/email');
 
 	app.get('/signup', authController.signup);
 	app.get('/signin', authController.signin);
@@ -141,9 +141,9 @@ module.exports = (app, passport) => {
 												`<li>${fiveEvents.events[i].strFilename}</li>`
 											);
 										}
-										email().then(function (resolve) {
-											console.log(resolve);
-											emailLabel = resolve;
+										//email().then(function (resolve) {
+										//	console.log(resolve);
+										//	emailLabel = resolve;
 											res.render("index", {
 												username: username,
 												news: newsText.join(''),
@@ -152,10 +152,10 @@ module.exports = (app, passport) => {
 												weather: weatherTemp,
 												sports: allEvents.join(''),
 												logo: sportsLogo,
-												email: emailLabel,
+											//	email: emailLabel,
 												calendar: calEvent
 											});
-										});
+										//});
 									}
 								);
 							}
